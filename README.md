@@ -12,8 +12,8 @@ This is a simple commander script to initialize a new express project with a few
 
 - create tsconfig.json
 - Create src folder ✅
-- Create in src folder server.ts
-- Create in src folder app.ts
+- Create in src folder server.ts ✅
+- Create in src folder app.ts ✅
 - Create routes folder in src folder ✅
 - Create controllers folder in src folder ✅
 - Create models folder in src folder ✅
@@ -25,8 +25,8 @@ This is a simple commander script to initialize a new express project with a few
 
 ### If Javascript:
 
-- Create server.js
-- Create app.js
+- Create server.js ✅
+- Create app.js ✅
 - Create routes folder ✅
 - Create controllers folder ✅ 
 - Create models folder ✅
@@ -38,7 +38,7 @@ This is a simple commander script to initialize a new express project with a few
 
 ## At the end:
 
-- print a message with the next steps to run the project
+- print a message with the next steps to run the project ✅
  ```bash
     cd <project-name>
     npm install

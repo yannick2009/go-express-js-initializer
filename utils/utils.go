@@ -55,31 +55,93 @@ func AskJsorTs() string {
 	}
 }
 
-// CHOICE FOR TYPESCRIPT
+// CHOICE FOR JAVASCRIPT
 func CreateJsSubFolders(projectName string, subfolders []string) {
 	// create sub-folders in root
 	for _, sub := range subfolders {
 		sub = fmt.Sprintf("%s/%s", projectName, sub)
 		err := os.MkdirAll(sub, os.ModePerm)
 		if err != nil && !os.IsExist(err) {
-			log.Fatal(fmt.Sprintf("Erreur lors de la création du sous dossier %s : %T - %v", sub, err, err))
+			log.Fatalf("Erreur lors de la création du sous dossier %s : %T - %v", sub, err, err)
 		}
 	}
 }
 
+func CreateJsFiles(projectName string, jsonfilesList []string, envFile string) {
+	// create differents json files
+	var filesNames []string = []string{"package"}
+	for index, file := range filesNames {
+		err := os.WriteFile(fmt.Sprintf("%s/%s.json", projectName, file), []byte(jsonfilesList[index]), os.ModePerm)
+		if err != nil {
+			log.Fatalf("Erreur lors de la création du fichier %s: %T - %v", file, err, err)
+		}
+	}
+	// create the env example file
+	err := os.WriteFile(fmt.Sprintf("%s/.env.example", projectName), []byte(envFile), os.ModePerm)
+	if err != nil {
+		log.Fatalf("Erreur lors de la création du fichier exemple env")
+	}
+	// create server.js and app.js files
+	var jsMainFiles []string = []string{"server", "app"}
+	for _, file := range jsMainFiles {
+		err := os.WriteFile(fmt.Sprintf("%s/%s.js", projectName, file), []byte(fmt.Sprintf("//%s.js", file)), os.ModePerm)
+		if err != nil {
+			log.Fatalf("Erreur lors de la création du fichier %s.js: %T - %v", file, err, err)
+		}
+	}
+}
+
+// CHOICE FOR TYPESCRIPT
+const sourceDir string = "src"
+
 func CreateTsSubFolders(projectName string, subfolders []string) {
 	// create the source folder
-	const sourceDir string = "src"
 	err := os.MkdirAll(fmt.Sprintf("%s/%s", projectName, sourceDir), os.ModePerm)
 	if err != nil && !os.IsExist(err) {
-		log.Fatal(fmt.Sprintf("Erreur lors de la création du sous dossier source %s : %T - %v", sourceDir, err, err))
+		log.Fatalf("Erreur lors de la création du sous dossier source %s : %T - %v", sourceDir, err, err)
 	}
 	// create sub-folders in src
 	for _, sub := range subfolders {
 		sub = fmt.Sprintf("%s/%s/%s", projectName, sourceDir, sub)
 		err := os.MkdirAll(sub, os.ModePerm)
 		if err != nil && !os.IsExist(err) {
-			log.Fatal(fmt.Sprintf("Erreur lors de la création du sous dossier %s : %T - %v", sub, err, err))
+			log.Fatalf("Erreur lors de la création du sous dossier %s : %T - %v", sub, err, err)
 		}
 	}
+}
+
+func CreateTsFiles(projectName string, jsonfilesList []string, envFile string) {
+	// create differents json files
+	var filesNames []string = []string{"package", "tsconfig"}
+	for index, file := range filesNames {
+		err := os.WriteFile(fmt.Sprintf("%s/%s.json", projectName, file), []byte(jsonfilesList[index]), os.ModePerm)
+		if err != nil {
+			log.Fatalf("Erreur lors de la création du fichier %s: %T - %v", file, err, err)
+		}
+	}
+	// create the env example file
+	err := os.WriteFile(fmt.Sprintf("%s/.env.example", projectName), []byte(envFile), os.ModePerm)
+	if err != nil {
+		log.Fatalf("Erreur lors de la création du fichier exemple env")
+	}
+	// create server.ts and app.ts files
+	var tsMainFiles []string = []string{"server", "app"}
+	for _, file := range tsMainFiles {
+		err := os.WriteFile(fmt.Sprintf("%s/%s/%s.ts", projectName, sourceDir, file), []byte(fmt.Sprintf("//%s.ts", file)), os.ModePerm)
+		if err != nil {
+			log.Fatalf("Erreur lors de la création du fichier %s.ts: %T - %v", file, err, err)
+		}
+	}
+}
+
+// END WHITH PRINT
+func PrintAtheEnd(projectName string) {
+	fmt.Println("|--------------------------------------------|")
+	fmt.Println(" Congratulations your project is ready ✅🎊")
+	fmt.Println("|--------------------------------------------|")
+	fmt.Println("")
+	fmt.Println("execute these commands below and enjoy your project 💫😁")
+	fmt.Println("")
+	fmt.Printf("cd %s\n", projectName)
+	fmt.Println("npm install")
 }

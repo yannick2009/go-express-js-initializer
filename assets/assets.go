@@ -2,7 +2,7 @@ package assets
 
 import "strings"
 
-const F_env_exemple string = `# SERVER
+const F_env_example string = `# SERVER
 NODE_ENV="development"
 PORT=0000
 
