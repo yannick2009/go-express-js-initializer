@@ -37,7 +37,7 @@ func CreateFolder(projectName string) {
 
 // FUNCTION TO ASK BETWEEN JS & TS
 var choice int
-
+// Function to ask between Javascript (Js) and Typescript (Ts)
 func AskJsorTs() string {
 	fmt.Println("What's your choice between JavaScript🟨 and TypeScript🟦: ")
 	fmt.Println("1 => JavaScript🟨 ")
@@ -56,6 +56,8 @@ func AskJsorTs() string {
 }
 
 // CHOICE FOR JAVASCRIPT
+
+// Function to create sub-folders
 func CreateJsSubFolders(projectName string, subfolders []string) {
 	// create sub-folders in root
 	for _, sub := range subfolders {
@@ -67,6 +69,7 @@ func CreateJsSubFolders(projectName string, subfolders []string) {
 	}
 }
 
+// Functions to create differents main files 
 func CreateJsFiles(projectName string, jsonfilesList []string, envFile string) {
 	// create differents json files
 	var filesNames []string = []string{"package"}
@@ -93,7 +96,7 @@ func CreateJsFiles(projectName string, jsonfilesList []string, envFile string) {
 
 // CHOICE FOR TYPESCRIPT
 const sourceDir string = "src"
-
+// Function to create src sub-folders
 func CreateTsSubFolders(projectName string, subfolders []string) {
 	// create the source folder
 	err := os.MkdirAll(fmt.Sprintf("%s/%s", projectName, sourceDir), os.ModePerm)
@@ -110,6 +113,7 @@ func CreateTsSubFolders(projectName string, subfolders []string) {
 	}
 }
 
+// Functions to create differents main files 
 func CreateTsFiles(projectName string, jsonfilesList []string, envFile string) {
 	// create differents json files
 	var filesNames []string = []string{"package", "tsconfig"}
