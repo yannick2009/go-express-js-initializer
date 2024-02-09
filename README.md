@@ -1,45 +1,32 @@
 # Go-Express-Initializer
 
-This is a simple commander script to initialize a new express project with a few basic files and folders. this program is written in Go.
+Welcome to the Express.js Starter with Go Integration project! This starter template is designed to streamline the process of creating new Express.js projects while leveraging the power and efficiency of the Go programming language (Golang).
 
-## DEV STEPS
+## Requirements
 
-1. Ask for project name ✅
-2. Create project folder ✅
-3. Ask for Javascript or Typescript (by default it will be Typescript) ✅
+- **Go**: The Go programming language is required to run the Go server. You can download and install Go from the official website: [https://golang.org/](https://golang.org/).
+- **Node.js**: Node.js is required to run the Express.js server. You can download and install Node.js from the official website: [https://nodejs.org/](https://nodejs.org/).
 
-### If Typescript:
+## Getting Started
 
-- create tsconfig.json
-- Create src folder ✅
-- Create in src folder server.ts ✅
-- Create in src folder app.ts ✅
-- Create routes folder in src folder ✅
-- Create controllers folder in src folder ✅
-- Create models folder in src folder ✅
-- Create middlewares folder in src folder ✅
-- Create services folder in src folder ✅
-- Create utils folder in src folder ✅
-- Create config folder in src folder ✅
-- Create tests folder in src folder ✅
+1. Clone the repository to your local machine.
+2. in the root directory of the project, run the following command to build the Go CLI:
 
-### If Javascript:
-
-- Create server.js ✅
-- Create app.js ✅
-- Create routes folder ✅
-- Create controllers folder ✅ 
-- Create models folder ✅
-- Create middlewares folder ✅
-- Create services folder ✅
-- Create utils folder ✅
-- Create config folder ✅
-- Create tests folder ✅
-
-## At the end:
-
-- print a message with the next steps to run the project ✅
- ```bash
-    cd <project-name>
-    npm install
+```bash
+go build
 ```
+
+3. execute the program compiled in the previous step:
+
+```bash
+./go-express-initializer
+```
+
+4. In a new terminal, navigate to the `express` directory and install the required Node.js packages:
+
+```bash
+cd project_name_chosen
+npm install
+```
+
+enjoy!
